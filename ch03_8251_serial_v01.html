@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="핀 배치 → 모드 설정 → 커맨드 → 프로그램 흐름"><title>제03장 · 8251 시리얼 통신 · 라인 마이크로 로봇 제작하기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%234635B1'/%3E%3Ctext x='16' y='22' font-size='14' text-anchor='middle' fill='%23FFD24A' font-family='monospace'%3EZ80%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="assets/site.css"></head><body data-chapter="ch03">
+<button type="button" class="mobile-menu" id="mobile-menu" aria-controls="course-nav" aria-expanded="false">☰ 장·목차</button><div class="shade" id="shade"></div>
+<header class="hero"><div class="hero-inner"><p class="kicker">MICRO ROBOT PROJECT · CHAPTER 03</p><h1>제03장 · 8251 시리얼 통신</h1><p>핀 배치 → 모드 설정 → 커맨드 → 프로그램 흐름</p><div class="chips"><span class="chip">8251</span><span class="chip">USART</span><span class="chip">RS-232</span></div></div></header>
+<div class="wrap"><nav class="toc" id="course-nav" aria-label="장과 절 탐색"></nav><main class="content" id="main-content"><section class="section" id="s00"><h2><span class="num">00</span>8251의 구조와 기능</h2><p>8251의 구조 및 기능</p>
+<p><strong>1. 8251의 핀 배치도</strong></p>
+<figure class="fig"><img src="assets/img/img_d965c66327.gif" width="330" height="252" alt="본문 그림" loading="lazy" decoding="async" style="width:258px"></figure>
+<figure class="fig"><img src="assets/img/img_51a0954ce5.gif" width="312" height="156" alt="본문 그림" loading="lazy" decoding="async" style="width:244px"></figure>
+<p><strong>2. 핀별 기능</strong></p>
+<p>(1) D0∼D7 : CPU에서의 데이터, 커맨드, 스테터스를 주고받기 위한 데이터 버스</p>
+<p>(2) RESET : 새로운 컨트롤 워드를 받을 때까지 IDLE 상태로 대기</p>
+<p>(3) CLK(Clock) : 내부 동작의 타이밍을 맞추는데 사용. 비동기 x1모드에서는 RxCLK/TxCLK의 30배 이상이 되어야 하며, x16, x64 모드는 4.5배 이상이 되어야 한다.</p>
+<p>(4) WR(Write) : CPU가 8251로 데이터나 컨트롤 워드를 써넣을 때 사용.</p>
+<p>(5) RD(Read) : CPU가 8251의 스테터스, 데이터를 읽을 때 사용.</p>
+<p>(6) C/D(Control/Data) : CPU와 8251과 데이터를 주고받을 때 컨트롤 레지스터 혹은 데이터 레지스터를 지정</p>
+<p>(7) CS(Chip Select) : 8251을 선택(Enable)할 때 사용</p>
+<p>(8) TxD(Transmitter Data) : 송신 데이터 출력</p>
+<p>(9) RxD(Receiver Data) : 수신 데이터 입력</p>
+<p>(10) TxC(Transmitter Clock), RxC(Receiver Clock) : 송/수신용 시리얼 기준 클럭으로 비동기식일 경우 보레이트의 ×1, ×16, ×64의 주파수, 동기식일 경우에는 보레이트와 같은 주파수 입력</p>
+<p>(11) TxRDY(Transmitter Ready) : 데이터 전송이 가능하다는 것을 알리는 신호</p>
+<p>(12) RxRDY(Receiver Ready) : 송신된 데이터가 수신 버퍼에 있다는 것을 표시</p>
+<p>(13) TxEMPTY(Transmitter Empty) : 송신 버퍼에 데이터가 없음을 표시</p>
+<p>(14) SYNDET/BD(SYNC Detect/BRKDET Detect) : SYNDET는 동기식 모드 입/출력 핀으로 사용되며, BD는 비동기 모드시 브레이크 상태 검출</p>
+<p>(15) DTR(Data Terminal Ready) : 8251이 송신 가능 상태에 있다는 것을 모뎀에 알림</p>
+<p>(16) DSR(Data Set Ready) : 모뎀의 상태를 검출</p>
+<p>(17) RTS(Request To Send) : 모뎀의 송신 기능을 조정</p>
+<p>(18) CTS(Clear To Send) : 모뎀의 송신 가능의 상태를 검출</p>
+<p><strong>3. 모드 설정</strong></p>
+<p>⑴ Control Word의 구조</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>D7</p></td><td><p>D6</p></td><td><p>D5</p></td><td><p>D4</p></td><td><p>D3</p></td><td><p>D2</p></td><td><p>D1</p></td><td><p>D0</p></td></tr><tr><td><p>S2</p></td><td><p>S1</p></td><td><p>EP</p></td><td><p>PEN</p></td><td><p>L2</p></td><td><p>L1</p></td><td><p>B2</p></td><td><p>B1</p></td></tr></table></div>
+<p>⑵ 모드 구조</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>동 기</p></td><td><p>S2</p></td><td><p>S1</p></td><td><p>의<span class="gap"></span>미</p></td></tr><tr><td rowspan="4"><p>비동기</p></td><td><p>0</p></td><td><p>0</p></td><td><p>무효</p></td></tr><tr><td><p>0</p></td><td><p>1</p></td><td><p>스톱 비트 수 : 1비트</p></td></tr><tr><td><p>1</p></td><td><p>0</p></td><td><p>스톱 비트 수 : 1.5비트</p></td></tr><tr><td><p>1</p></td><td><p>1</p></td><td><p>스톱 비트 수 : 2비트</p></td></tr><tr><td rowspan="4"><p>동기</p></td><td></td><td><p>0</p></td><td><p>외부 동기 검출 : 출력</p></td></tr><tr><td></td><td><p>1</p></td><td><p>외부 동기 검출 : 입력</p></td></tr><tr><td><p>0</p></td><td></td><td><p>동기 캐릭터 수 : 2 SYNC</p></td></tr><tr><td><p>1</p></td><td></td><td><p>동기 캐릭터 수 : 1 SYNC</p></td></tr></table></div>
+<p>EP : 패리티 발생</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>0</p></td><td><p>홀수 패리티 발생</p></td></tr><tr><td><p>1</p></td><td><p>짝수 패리티 발생</p></td></tr></table></div>
+<p>PEN : 패리티 Enabled</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>0</p></td><td><p>Disabled</p></td></tr><tr><td><p>1</p></td><td><p>Enabled</p></td></tr></table></div>
+<p>L2, L1 : 캐릭터 길이</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>L2</p></td><td><p>L1</p></td><td><p>의 미</p></td></tr><tr><td><p>0</p></td><td><p>0</p></td><td><p>5bit</p></td></tr><tr><td><p>0</p></td><td><p>1</p></td><td><p>6bit</p></td></tr><tr><td><p>1</p></td><td><p>0</p></td><td><p>7bit</p></td></tr><tr><td><p>1</p></td><td><p>1</p></td><td><p>8bit</p></td></tr></table></div>
+<p>B2, B1 : 브레이트</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>B2</p></td><td><p>B1</p></td><td><p>의 미</p></td></tr><tr><td><p>0</p></td><td><p>0</p></td><td><p>동기 모드</p></td></tr><tr><td><p>0</p></td><td><p>1</p></td><td><p>×1</p></td></tr><tr><td><p>1</p></td><td><p>0</p></td><td><p>×16</p></td></tr><tr><td><p>1</p></td><td><p>1</p></td><td><p>×64</p></td></tr></table></div>
+<p>4) 커맨드 설정</p>
+<p>⑴ Command Word 구조</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>D7</p></td><td><p>D6</p></td><td><p>D5</p></td><td><p>D4</p></td><td><p>D3</p></td><td><p>D2</p></td><td><p>D1</p></td><td><p>D0</p></td></tr><tr><td><p>EH</p></td><td><p>IR</p></td><td><p>RTS</p></td><td><p>ER</p></td><td><p>SBRK</p></td><td><p>RxE</p></td><td><p>DTR</p></td><td><p>TxEN</p></td></tr></table></div>
+<p>⑵ 커맨드 내용</p>
+<p>EH : 엔터 헌트 모드</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>0</p></td><td><p>무의미</p></td></tr><tr><td><p>1</p></td><td><p>SYNC 캐릭터를 검출 시작</p></td></tr></table></div>
+<p>IR : 소프트웨어 리셋</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>0</p></td><td><p>무의미</p></td></tr><tr><td><p>1</p></td><td><p>8251을 리셋</p></td></tr></table></div>
+<p>RTS : RTS 단자 제어</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>0</p></td><td><p>RTS = 0 으로 설정</p></td></tr><tr><td><p>1</p></td><td><p>RTS = 1 로 설정</p></td></tr></table></div>
+<p>ER : 에러 리셋</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>0</p></td><td><p>무의미</p></td></tr><tr><td><p>1</p></td><td><p>에러 플래그 클리어 (PE, OE, FE)</p></td></tr></table></div>
+<p>SBRK : 샌드 브레이크 캐릭터</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>0</p></td><td><p>보통 동작</p></td></tr><tr><td><p>1</p></td><td><p>TxD = 0 으로 설정</p></td></tr></table></div>
+<p>RxE : 수신 Enabled</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>0</p></td><td><p>수신 금지</p></td></tr><tr><td><p>1</p></td><td><p>수신 허가</p></td></tr></table></div>
+<p>DTR : DTR 단자 제어</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>0</p></td><td><p>DTR = 0 으로 설정</p></td></tr><tr><td><p>1</p></td><td><p>DTR = 1 로 설정</p></td></tr></table></div>
+<p>TxEN : 송신 Enabled</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>0</p></td><td><p>송신 금지</p></td></tr><tr><td><p>1</p></td><td><p>송신 가능</p></td></tr></table></div>
+<p><strong>5) 상태 레지스터</strong></p>
+<p>⑴ Status Register 구조</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>D7</p></td><td><p>D6</p></td><td><p>D5</p></td><td><p>D4</p></td><td><p>D3</p></td><td><p>D2</p></td><td><p>D1</p></td><td><p>D0</p></td></tr><tr><td><p>DSR</p></td><td><p>SYNDET/BD</p></td><td><p>FE</p></td><td><p>OE</p></td><td><p>PE</p></td><td><p>TxE</p></td><td><p>RxRDY</p></td><td><p>TxRDY</p></td></tr></table></div>
+<p>⑵ Status 내용</p>
+<p>DSR :</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>0</p></td><td><p>DSR Off</p></td></tr><tr><td><p>1</p></td><td><p>DSR On</p></td></tr></table></div>
+<p>SYNDET/BD</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td rowspan="2"><p>동기시</p></td><td><p>0</p></td><td><p>없다</p></td></tr><tr><td><p>1</p></td><td><p>SYN 문자 테스트</p></td></tr><tr><td rowspan="2"><p>비동기시</p></td><td><p>0</p></td><td><p>없다</p></td></tr><tr><td><p>1</p></td><td><p>브레이크 신호</p></td></tr></table></div>
+<p>FE : Flag Error</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>0</p></td><td><p>없다</p></td></tr><tr><td><p>1</p></td><td><p>프레그 에러 발생</p></td></tr></table></div>
+<p>OE : Overrun Error</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>0</p></td><td><p>없다</p></td></tr><tr><td><p>1</p></td><td><p>오버런 에러 발생</p></td></tr></table></div>
+<p>PE : Parity Error</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>0</p></td><td><p>없다</p></td></tr><tr><td><p>1</p></td><td><p>페리티 에러 발생</p></td></tr></table></div>
+<p>송신 가능 상태 (버퍼 상태)</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>0</p></td><td><p>송신 불가능</p></td></tr><tr><td><p>1</p></td><td><p>송신 가능 (버퍼 비어 있음)</p></td></tr></table></div>
+<p>RxRDY : 수신된 캐릭터 상태</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>0</p></td><td><p>수신된 캐릭터 없음</p></td></tr><tr><td><p>1</p></td><td><p>수신된 캐릭터 있음</p></td></tr></table></div>
+<p>TxRDY : 송신 가능 상태</p>
+<div class="table-wrap" tabindex="0"><table class="hwp"><tr><td><p>0</p></td><td><p>송신 불가능</p></td></tr><tr><td><p>1</p></td><td><p>송신 가능</p></td></tr></table></div>
+<p>※ 8251을 비동기 통신 모드로 사용할 경우 프로그램 흐름도</p>
+<figure class="fig"><img src="assets/img/img_01c4db3759.gif" width="263" height="463" alt="본문 그림" loading="lazy" decoding="async" style="width:206px"></figure></section><div class="chapter-links" id="chapter-links"></div></main></div>
+<footer class="footer">라인 마이크로 로봇 제작하기 · v01 · 프로젝트지도서 99-36 (대한상공회의소 직업교육훈련사업단) 웹 변환본</footer>
+<script>window.COURSE={"title": "라인 마이크로 로봇 제작하기", "short_title": "MICRO ROBOT PROJECT", "home_label": "전체 학습 안내서", "chapters": [{"id": "ch01", "number": 1, "title": "프로젝트 개요", "file": "ch01_project_overview_v01.html"}, {"id": "ch02", "number": 2, "title": "Z80 원보드 컴퓨터", "file": "ch02_z80_one_board_computer_v01.html"}, {"id": "ch03", "number": 3, "title": "8251 시리얼 통신", "file": "ch03_8251_serial_v01.html"}, {"id": "ch04", "number": 4, "title": "DC 모터 제어", "file": "ch04_dc_motor_control_v01.html"}, {"id": "ch05", "number": 5, "title": "센서와 신호 검출", "file": "ch05_sensors_v01.html"}, {"id": "ch06", "number": 6, "title": "프레임과 바퀴 제작", "file": "ch06_frame_and_wheels_v01.html"}, {"id": "ch07", "number": 7, "title": "운용 프로그램 제작", "file": "ch07_z80_assembly_v01.html"}, {"id": "ch08", "number": 8, "title": "학습활동 안내", "file": "ch08_learning_activities_v01.html"}, {"id": "ch09", "number": 9, "title": "계획·보고·평가", "file": "ch09_plan_report_evaluation_v01.html"}, {"id": "ch10", "number": 10, "title": "회로도·발표 자료", "file": "ch10_resources_v01.html"}]};</script><script src="assets/site.js"></script><script src="assets/zoom.js"></script></body></html>

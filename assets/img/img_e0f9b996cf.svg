@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7263 4962" width="387" height="265" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="context-stroke"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<rect x="5474" y="637" width="1311" height="455" stroke="none" stroke-width="28" fill="none"/>
+<text x="5545" y="920" font-size="250" xml:space="preserve">  VOUT</text>
+<polyline points="4057,1150 4439,1022 4439,808" stroke="#000000" stroke-width="28" fill="none"/>
+<polyline points="4433,131 4433,285 4551,324 4297,372 4555,441 4293,485 4551,556 4300,597 4438,640 4438,846" stroke="#000000" stroke-width="28" fill="none"/>
+<rect x="3202" y="1395" width="234" height="461" rx="0" stroke="#00ff00" stroke-width="8" fill="#00ff00"/>
+<rect x="3081" y="1818" width="1161" height="481" stroke="none" stroke-width="8" fill="none"/>
+<text x="3152" y="2101" font-size="250" xml:space="preserve">검출체</text>
+<polyline points="2692,1146 2475,1146 2594,1311 2696,1146" stroke="#000000" stroke-width="28" fill="#d9d9d9"/>
+<polyline points="2711,1308 2465,1308" stroke="#000000" stroke-width="28" fill="#d9d9d9"/>
+<polyline points="2579,144 2579,287 2681,323 2458,368 2683,432 2455,474 2681,538 2461,575 2581,616 2581,806" stroke="#000000" stroke-width="28" fill="none"/>
+<line x1="5608" y1="133" x2="2580" y2="134" stroke="#000000" stroke-width="28" fill="none" marker-start="url(#ah)"/>
+<line x1="2580" y1="802" x2="2581" y2="1160" stroke="#000000" stroke-width="28" fill="none"/>
+<line x1="2591" y1="1317" x2="2592" y2="1808" stroke="#000000" stroke-width="28" fill="none"/>
+<line x1="2419" y1="1806" x2="2795" y2="1807" stroke="#000000" stroke-width="28" fill="none"/>
+<line x1="2493" y1="1874" x2="2708" y2="1875" stroke="#000000" stroke-width="28" fill="none"/>
+<line x1="2557" y1="1932" x2="2665" y2="1933" stroke="#000000" stroke-width="28" fill="none"/>
+<line x1="4055" y1="1102" x2="4055" y2="1355" stroke="#000000" stroke-width="28" fill="#d9d9d9"/>
+<polyline points="4210,1321 4175,1368 4284,1375 4214,1323" stroke="#000000" stroke-width="28" fill="#d9d9d9"/>
+<polyline points="4064,1297 4431,1425 4431,1639" stroke="#000000" stroke-width="28" fill="none"/>
+<line x1="4239" y1="1796" x2="4615" y2="1797" stroke="#000000" stroke-width="28" fill="none"/>
+<line x1="4315" y1="1863" x2="4530" y2="1864" stroke="#000000" stroke-width="28" fill="none"/>
+<line x1="4380" y1="1922" x2="4488" y2="1923" stroke="#000000" stroke-width="28" fill="none"/>
+<line x1="4425" y1="1613" x2="4426" y2="1792" stroke="#000000" stroke-width="28" fill="none"/>
+<line x1="2871" y1="1167" x2="3215" y2="1168" stroke="#ff0000" stroke-width="28" fill="none" marker-start="url(#ah)"/>
+<line x1="3053" y1="1278" x2="3344" y2="1279" stroke="#ff0000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="3214" y1="1167" x2="3042" y2="1287" stroke="#ff0000" stroke-width="28" fill="none" marker-start="url(#ah)"/>
+<line x1="4437" y1="847" x2="5639" y2="848" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)"/>
+<rect x="5702" y="0" width="858" height="455" stroke="none" stroke-width="28" fill="none"/>
+<text x="5773" y="283" font-size="250" xml:space="preserve">Vcc</text>
+<line x1="2312" y1="311" x2="2313" y2="579" stroke="#ff0000" stroke-width="21" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="4170" y1="290" x2="4169" y2="581" stroke="#ff0000" stroke-width="21" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="5252" y1="45" x2="4833" y2="46" stroke="#ff0000" stroke-width="21" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<rect x="128" y="296" width="1032" height="677" stroke="none" stroke-width="28" fill="none"/>
+<text x="199" y="579" font-size="250" xml:space="preserve"> LED</text>
+<ellipse cx="671" cy="540" rx="671" ry="279" stroke="#0000ff" stroke-width="28" fill="none"/>
+<line x1="1163" y1="1331" x2="1925" y2="1332" stroke="none" stroke-width="8" fill="none"/>
+<line x1="1303" y1="699" x2="1884" y2="1012" stroke="#ff00ff" stroke-width="28" fill="none" marker-end="url(#ah)"/>
+<line x1="1002" y1="2966" x2="1003" y2="3176" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="1002" y1="3176" x2="2355" y2="3175" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="2356" y1="3182" x2="2357" y2="3346" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="2678" y1="2966" x2="2679" y2="3332" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="2667" y1="2959" x2="992" y2="2960" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="992" y1="3707" x2="993" y2="3937" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="2678" y1="3529" x2="2679" y2="3923" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="2366" y1="3536" x2="2367" y2="3692" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="2377" y1="3707" x2="1002" y2="3708" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="992" y1="3930" x2="2678" y2="3931" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="2365" y1="3344" x2="2688" y2="3345" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="2376" y1="3536" x2="2677" y2="3537" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="4534" y1="3166" x2="4535" y2="3339" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="4556" y1="3166" x2="5694" y2="3167" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="4223" y1="2950" x2="4224" y2="3338" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="5682" y1="3157" x2="5683" y2="2957" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="5673" y1="2950" x2="4223" y2="2951" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="4243" y1="3337" x2="4522" y2="3338" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="4493" y1="3493" x2="4223" y2="3494" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="4223" y1="3493" x2="4224" y2="3925" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="4524" y1="3493" x2="4525" y2="3680" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="4524" y1="3679" x2="5738" y2="3680" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="5736" y1="3679" x2="5737" y2="3917" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line x1="4233" y1="3916" x2="5726" y2="3917" stroke="#000000" stroke-width="28" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<polyline points="1599,3316 1878,3316 1905,3319 1934,3327 1945,3334 1962,3346 1981,3361 1993,3378 2006,3408 2009,3449 2006,3482 1995,3505 1981,3525 1962,3540 1939,3555 1908,3564 1890,3566 1599,3566 1599,3314" stroke="#000000" stroke-width="35" fill="none" marker-end="url(#ah)"/>
+<line x1="1591" y1="3392" x2="826" y2="3393" stroke="#000000" stroke-width="35" fill="#d9d9d9" marker-end="url(#ah)"/>
+<line x1="1595" y1="3500" x2="819" y2="3501" stroke="#000000" stroke-width="35" fill="#d9d9d9" marker-end="url(#ah)"/>
+<line x1="1821" y1="3314" x2="1822" y2="3566" stroke="#000000" stroke-width="35" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<polyline points="5122,3556 4844,3556 4818,3552 4787,3545 4777,3540 4758,3527 4742,3511 4731,3494 4716,3464 4713,3424 4716,3389 4726,3368 4741,3349 4758,3332 4784,3316 4813,3308 4832,3306 5122,3306 5122,3557" stroke="#000000" stroke-width="35" fill="none" marker-end="url(#ah)"/>
+<line x1="5127" y1="3479" x2="5892" y2="3480" stroke="#000000" stroke-width="35" fill="#d9d9d9" marker-end="url(#ah)"/>
+<line x1="5126" y1="3373" x2="5902" y2="3374" stroke="#000000" stroke-width="35" fill="#d9d9d9" marker-end="url(#ah)"/>
+<line x1="4899" y1="3558" x2="4900" y2="3306" stroke="#000000" stroke-width="35" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<rect x="3277" y="3961" width="333" height="661" rx="0" stroke="#00ff00" stroke-width="28" fill="#00ff00"/>
+<rect x="1002" y="3708" width="1654" height="216" rx="0" stroke="#000000" stroke-width="28" fill="#000000"/>
+<rect x="2355" y="3529" width="312" height="403" rx="0" stroke="#000000" stroke-width="28" fill="#000000"/>
+<rect x="980" y="2959" width="1568" height="216" rx="0" stroke="#000000" stroke-width="28" fill="#000000"/>
+<rect x="2367" y="2959" width="301" height="380" rx="0" stroke="#000000" stroke-width="28" fill="#000000"/>
+<rect x="1603" y="3314" width="205" height="245" rx="0" stroke="#000000" stroke-width="28" fill="#000000"/>
+<rect x="4898" y="3307" width="215" height="238" rx="0" stroke="#000000" stroke-width="28" fill="#000000"/>
+<rect x="4223" y="2950" width="312" height="388" rx="0" stroke="#000000" stroke-width="28" fill="#000000"/>
+<rect x="4307" y="2950" width="1375" height="210" rx="0" stroke="#000000" stroke-width="28" fill="#000000"/>
+<rect x="4211" y="3493" width="301" height="416" rx="0" stroke="#000000" stroke-width="28" fill="#000000"/>
+<rect x="4458" y="3693" width="1278" height="216" rx="0" stroke="#000000" stroke-width="28" fill="#000000"/>
+<rect x="3641" y="4094" width="861" height="486" stroke="none" stroke-width="28" fill="none"/>
+<text x="3712" y="4420" font-size="300" xml:space="preserve">물체</text>
+<line x1="3427" y1="3486" x2="3428" y2="3799" stroke="#000000" stroke-width="49" fill="none" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<rect x="864" y="4352" width="1568" height="489" stroke="none" stroke-width="49" fill="none"/>
+<text x="935" y="4720" font-size="350" xml:space="preserve">(투광기)</text>
+<rect x="4433" y="4417" width="1568" height="545" stroke="none" stroke-width="49" fill="none"/>
+<text x="4504" y="4785" font-size="350" xml:space="preserve">(수광기)</text>
+<line x1="830" y1="847" x2="1722" y2="3069" stroke="#ff00ff" stroke-width="28" fill="none" marker-end="url(#ah)"/>
+<ellipse cx="6073" cy="1903" rx="778" ry="401" stroke="#0000ff" stroke-width="28" fill="none"/>
+<rect x="5457" y="1506" width="1394" height="899" stroke="none" stroke-width="28" fill="none"/>
+<text x="5528" y="1789" font-size="250" xml:space="preserve">포토트랜지스터</text>
+<line x1="5446" y1="2133" x2="4920" y2="3123" stroke="#ff00ff" stroke-width="28" fill="none" marker-end="url(#ah)"/>
+</svg>

@@ -1,0 +1,69 @@
+(ExpressProject ""
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (File ".\z80하드웨어 회로도 진짜.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (NoModify))
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (PartMRUSelector)
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\z80하드웨어 회로도 진짜.dsn")
+      (Path "Design Resources" ".\z80하드웨어 회로도 진짜.dsn" "STEPMOT")
+      (Path "Design Resources" ".\z80하드웨어 회로도 진짜.dsn" "DC MOTOR")
+      (Path "Design Resources" ".\z80하드웨어 회로도 진짜.dsn" "DC298제어")
+      (Path "Design Resources" ".\z80하드웨어 회로도 진짜.dsn" "DCMOT")
+      (Path "Design Resources" ".\z80하드웨어 회로도 진짜.dsn" "FULLBRIDGE")
+      (Path "Design Resources" ".\z80하드웨어 회로도 진짜.dsn" "INTERFACE")
+      (Path "Design Resources" ".\z80하드웨어 회로도 진짜.dsn" "MAIN")
+      (Path "Design Resources" ".\z80하드웨어 회로도 진짜.dsn" "OPTO4")
+      (Path "Design Resources" ".\z80하드웨어 회로도 진짜.dsn" "OPTO8")
+      (Path "Design Resources" ".\z80하드웨어 회로도 진짜.dsn" "OPTOINPUT")
+      (Path "Design Resources" ".\z80하드웨어 회로도 진짜.dsn" "OPTOSENSOR")
+      (Path "Design Resources" ".\z80하드웨어 회로도 진짜.dsn" "PPORT_CONTROL")
+      (Path "Design Resources" ".\z80하드웨어 회로도 진짜.dsn" "RS232")
+      (Path "Design Resources" ".\z80하드웨어 회로도 진짜.dsn" "ULTRA")
+      (Path "Design Resources" ".\z80하드웨어 회로도 진짜.dsn" "Z80COM")
+      (Path "Design Resources" ".\z80하드웨어 회로도 진짜.dsn" "Z80COMPUTER")
+      (Select "Design Resources" ".\z80하드웨어 회로도 진짜.dsn" "Z80COMPUTER"
+         "Z80COM"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -4 -30 0 200 0 379"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -30 88 1236 116 529")
+        (Scroll "0 0")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path "E:\[한글]마이크로로봇_프로젝트지도서\Z80하드웨어 회로도 진짜.DSN")
+      (Schematic "STEPMOT")
+      (Page "STEPMOT"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -30 110 1258 145 558")
+        (Scroll "0 0")
+        (Zoom "100"))
+      (Path "E:\[한글]마이크로로봇_프로젝트지도서\Z80하드웨어 회로도 진짜.DSN")
+      (Schematic "MAIN")
+      (Page "MAINBOARD"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -30 132 1280 174 587")
+        (Scroll "0 0")
+        (Zoom "100"))
+      (Path "E:\[한글]마이크로로봇_프로젝트지도서\Z80하드웨어 회로도 진짜.DSN")
+      (Schematic "Z80COMPUTER")
+      (Page "Z80COMPUTER"))))
